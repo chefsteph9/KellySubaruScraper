@@ -25,12 +25,14 @@ namespace KellySubaruScraper
             while ( again )
             {
                 ScrapeInfo info;
-                Console.WriteLine("Would you like to scrape information using [r]egex, [x]path or [p]uppeteer?");
+                Console.WriteLine("Would you like to scrape information using [x]path or [p]uppeteer?");
                 string parseType = Console.ReadLine().ToLower();
                 
                 if (parseType == "r")
                 {
-                    info = useRegex();
+                    Console.WriteLine("This functionality isn't ready yet");
+                    info = new ScrapeInfo();
+                    //info = useRegex();
                 }
 
                 else if (parseType == "x")
@@ -111,7 +113,7 @@ namespace KellySubaruScraper
 
             var page = await browser.NewPageAsync();
 
-            var response = await page.GoToAsync("https://www.parkerhonda.com/auto/new-2019-honda-accord-lx-morehead-city-nc/40557255/");
+            var response = await page.GoToAsync(url);
 
             string html = await page.GetContentAsync();
 
